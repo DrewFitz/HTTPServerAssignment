@@ -47,6 +47,9 @@ void SendHTTPResponse(const char* path, const char* root, int clientSocket) {
     char* requestedFileName;
     FILE* requestedFile;
 
+    // redirect / to index.html
+    if (strcmp(path, "/") == 0) path = "/index.html";
+
     // detect the content type from file extension (don't verify the file is actually that type)
     const char* lastDot = strrchr(path, '.');
     lastDot++;
