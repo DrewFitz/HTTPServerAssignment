@@ -85,7 +85,7 @@ void SendHTTPResponse(const char* path, const char* root, int clientSocket) {
     if (requestedFile == NULL) {
         printf("ERROR: couldn't open file\n");
         send(clientSocket, notFoundResponse, sizeof(char)*strlen(notFoundResponse), 0);
-        send(clientSocket, *selectedContentType, sizeof(char)*strlen(*selectedContentType), 0);
+        send(clientSocket, nullContentType, sizeof(char)*strlen(nullContentType), 0);
         return;
     } else {
         char readBuffer[100];
