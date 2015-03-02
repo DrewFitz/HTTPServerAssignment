@@ -33,8 +33,8 @@ char* ReadHTTPRequest(const char* request) {
 }
 
 void SendHTTPResponse(const char* path, const char* root, int clientSocket) {
-    const char* okResponse = "HTTP/1.1 200 OK\r\n";
-    const char* notFoundResponse = "HTTP/1.1 404 Not Found\r\n";
+    const char* okResponse = "HTTP/1.0 200 OK\r\n";
+    const char* notFoundResponse = "HTTP/1.0 404 Not Found\r\n";
 
     const char* htmlContentType = "Content-Type: text/html\r\n\r\n";
     const char* textContentType = "Content-Type: text/plain\r\n\r\n";
