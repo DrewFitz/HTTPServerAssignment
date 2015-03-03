@@ -1,6 +1,5 @@
 #include "TCPEchoServer.h"  /* TCP echo server includes */
 #include <sys/wait.h>       /* for waitpid() */
-#include <unistd.h>
 
 void HandleHTTPClient(int clntSocket, const char* root);   /* TCP client handling function */
 
