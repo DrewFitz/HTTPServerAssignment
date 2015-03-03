@@ -1,0 +1,47 @@
+# Networking Programming Assignment 1 ###########
+
+Written by: Andrew Fitzpatrick - drew.fitz@uky.edu
+This code is also available at github: github.com/DrewFitz/HTTPServerAssignment
+
+---
+
+## Building and Running ##########
+
+The server can be built with the `make` command.
+
+> make all
+
+This will build the server and result in an executable named HTTPServer.
+The HTTPServer executable can be run as follows:
+
+> ./HTTPServer server_port server_root_directory
+
+Where server_port is the port number, and server_root_directory is the local directory to map the server root to.
+
+> make clean
+
+This will remove the compiled executable and the associated debug files
+
+## Files ##########
+
+Much of this code is the provided example code for sending data over TCP with UNIX sockets.
+
+Unmodified or nearly-unmodified example code files are:
+
+* AcceptTCPConnection.c
+* CreateTCPServerSocket.c
+* DieWithError.c
+* TCPEchoServer.h
+
+Whereas the modified/new files are:
+
+* HTTPServer.c
+* HTTPServer-Fork.c
+* HandleHTTPClient.c
+
+Nearly all relevant code is in HandleHTTPClient.c, whereas HTTPServer.c and HTTPServer-Fork.c are merely slightly modified versions of the TCPEchoServer versions in the sample code that call the new HTTP handler function.
+
+## Caveats ##########
+
+* Malformed requests will crash the server (by design), but should probably return server errors instead. This was because the assignment didn't specify which server errors to handle apart from 404 Not Found.
+* Added feature to guard against a malicious request trying to access parent directories to the server root directory (any request that has ".." as a path component is replied to with a 404).
