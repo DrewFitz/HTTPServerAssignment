@@ -30,8 +30,7 @@ int main(int argc, char *argv[])
         else if (processID == 0)  /* If this is the child process */
         {
             close(servSock);   /* Child closes parent socket */
-            // test concurrency
-            //sleep(10);
+            
             HandleHTTPClient(clntSock, argv[2]);
 
             exit(0);           /* Child process terminates */
