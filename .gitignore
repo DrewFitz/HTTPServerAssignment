@@ -1,2 +1,3 @@
 HTTPServer
-*.dSYM
+*.dSYM/
+html/
